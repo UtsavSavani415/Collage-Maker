@@ -4,6 +4,7 @@ import HomeScreen from '../../screens/home/HomeScreen';
 import SavedScreen from '../../screens/saved/SavedScreen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DashBoard from '../dashboard/DashBoard';
+import Collage from '../collage/collage';
 
 export enum Routes {
   ROOT = 'root',
@@ -28,13 +29,13 @@ export default function Navbar() {
         tabBarStyle: {
           height: 90,
           paddingTop: 0,
-          backgroundColor: 'rgba(34,36,40,1)',
+          backgroundColor: '#000',
           position: 'absolute',
           borderTopWidth: 0,
         },
       }}
       backBehavior="history">
-      <Tab.Screen name={Routes.HOME} component={DashBoard} />
+      <Tab.Screen name={Routes.HOME} component={HomeScreen} />
       <Tab.Screen name={Routes.SAVEDSCREEN} component={SavedScreen} />
     </Tab.Navigator>
   );
@@ -43,7 +44,12 @@ export default function Navbar() {
 export const RootNavigator = () => {
   return (
     <>
-      <Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName="root"
+        screenOptions={{
+          headerTintColor: 'white',
+          headerStyle: {backgroundColor: 'tomato'},
+        }}>
         <Stack.Screen
           name={Routes.ROOT}
           component={Navbar}
@@ -55,6 +61,21 @@ export const RootNavigator = () => {
           options={{
             presentation: 'card',
             headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name={Routes.COLLAGE}
+          component={Collage}
+          options={{
+            presentation: 'card',
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="Settings"
+          component={HomeScreen}
+          options={{
+            gestureEnabled: false,
           }}
         />
       </Stack.Navigator>
