@@ -5,7 +5,7 @@ function SavedScreen() {
   return (
     <>
       <View>
-        <Text>Home</Text>
+        <Text>Saved Screen</Text>
       </View>
     </>
   );

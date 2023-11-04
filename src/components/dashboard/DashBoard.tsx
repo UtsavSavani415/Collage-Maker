@@ -8,7 +8,7 @@ function DashBoard() {
   return (
     <>
       <View>
-        <Text>dashboard</Text>
+        <Text>dashboardddd</Text>
       </View>
     </>
   );

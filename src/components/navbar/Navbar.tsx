@@ -9,35 +9,38 @@ export enum Routes {
   ROOT = 'root',
   HOME = 'Home',
   COLLAGE = 'collage',
-  SAVEDSCREEN = 'SavedScreen',
+  SAVEDSCREEN = 'Saved',
 }
 const Tab = createBottomTabNavigator();
 
 const Stack = createNativeStackNavigator();
 
-const Home = () => (
-  <Stack.Navigator
-    screenOptions={{
-      headerShown: false,
-    }}>
-    <Stack.Screen component={DashBoard} name={Routes.HOME} />
-    <Stack.Screen component={DashBoard} name={Routes.COLLAGE} />
-  </Stack.Navigator>
-);
-
 export default function Navbar() {
   return (
-    <Tab.Navigator initialRouteName={Routes.HOME}>
-      <Tab.Screen name={Routes.HOME} component={Home} />
+    <Tab.Navigator
+      initialRouteName={Routes.HOME}
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: '#fff',
+        tabBarInactiveTintColor: '#666',
+        // tabBarActiveBackgroundColor: '#c4461c',
+        // tabBarInactiveBackgroundColor: '#b55031',
+        tabBarStyle: {
+          height: 90,
+          paddingTop: 0,
+          backgroundColor: 'rgba(34,36,40,1)',
+          position: 'absolute',
+          borderTopWidth: 0,
+        },
+      }}
+      backBehavior="history">
+      <Tab.Screen name={Routes.HOME} component={DashBoard} />
       <Tab.Screen name={Routes.SAVEDSCREEN} component={SavedScreen} />
     </Tab.Navigator>
   );
 }
 
 export const RootNavigator = () => {
-  console.log('====================================');
-  console.log('in navbar component');
-  console.log('====================================');
   return (
     <>
       <Stack.Navigator>
