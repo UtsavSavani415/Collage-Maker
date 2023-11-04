@@ -5,11 +5,13 @@ import SavedScreen from '../../screens/saved/SavedScreen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import DashBoard from '../dashboard/DashBoard';
 import Collage from '../collage/collage';
+import Photo from '../photo/Photo';
 
 export enum Routes {
   ROOT = 'root',
   HOME = 'Home',
   COLLAGE = 'collage',
+  PHOTO = 'photo',
   SAVEDSCREEN = 'Saved',
 }
 const Tab = createBottomTabNavigator();
@@ -56,8 +58,8 @@ export const RootNavigator = () => {
           options={{headerShown: false}}
         />
         <Stack.Screen
-          name={Routes.COLLAGE}
-          component={HomeScreen}
+          name={Routes.PHOTO}
+          component={Photo}
           options={{
             presentation: 'card',
             headerShown: false,
