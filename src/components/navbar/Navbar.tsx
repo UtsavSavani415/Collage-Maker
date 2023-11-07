@@ -3,8 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import HomeScreen from '../../screens/home/HomeScreen';
 import SavedScreen from '../../screens/saved/SavedScreen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import DashBoard from '../dashboard/DashBoard';
-import Collage from '../collage/collage';
+import Collage from '../collage/Collage';
 import Photo from '../photo/Photo';
 
 export enum Routes {

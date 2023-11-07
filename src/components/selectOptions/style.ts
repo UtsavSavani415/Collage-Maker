@@ -2,22 +2,10 @@ import {StyleSheet} from 'react-native';
 import {colors} from '../../constants/theme/theme';
 
 export const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#071015',
-    height: '100%',
-  },
-  optionContainer: {
-    paddingTop: '50%',
-    padding: 25,
-  },
-  containerTitle: {
-    color: colors.text,
-    paddingVertical: 20,
-    fontSize: 16,
-  },
+  container: {},
   box: {
     backgroundColor: colors.black,
-    height: '50%',
+    height: '65%',
     borderRadius: 16,
     justifyContent: 'space-around',
     padding: 20,
@@ -25,7 +13,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   optionBox: {
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
   optionIcon: {
     height: 70,
@@ -33,13 +21,15 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: 50,
   },
-  optionTitle: {
+  text: {
     paddingTop: 10,
-    color: colors.textSecondary,
+    color: colors.text,
     justifyContent: 'center',
+    textAlign: 'center',
+    fontSize: 15,
   },
   modal: {
-    backgroundColor: '#071015ff',
+    backgroundColor: 'rgba(20,30,50,0.9)',
     justifyContent: 'center',
     alignItems: 'center',
     height: '30%',
@@ -48,4 +38,16 @@ export const styles = StyleSheet.create({
     borderRadius: 30,
   },
   modalContainer: {},
+  btnBox: {
+    // borderWidth: 1,
+    // borderColor: colors.text,
+    borderRadius: 15,
+    padding: 10,
+    width: 100,
+    justifyContent: 'center',
+    margin: 10,
+    bottom: 0,
+    textAlign: 'center',
+    backgroundColor: colors.black,
+  },
 });
