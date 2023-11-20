@@ -12,4 +12,10 @@ export const styles = StyleSheet.create({
   btn: {
     color: colors.text,
   },
+  imgContainer: {},
+  img: {
+    height: 400,
+    width: '100%',
+    objectFit: 'contain',
+  },
 });

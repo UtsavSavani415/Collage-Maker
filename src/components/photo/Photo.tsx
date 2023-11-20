@@ -1,15 +1,15 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {styles} from './style';
-import SelectImage from '../../utils/selectImage/SelectImage';
 import {useRoute} from '@react-navigation/native';
 
 function Photo() {
   const insets = useSafeAreaInsets();
   const params = useRoute();
 
-  console.log(params);
+  let imageUri = params?.params.uri;
+  console.log(params.params.uri);
 
   return (
     <>
@@ -24,8 +24,9 @@ function Photo() {
           },
         ]}>
         <Text style={styles.text}>Photo Editing</Text>
-
-        <SelectImage />
+        <View style={styles.imgContainer}>
+          <Image style={styles.img} source={{uri: imageUri}} />
+        </View>
       </View>
     </>
   );

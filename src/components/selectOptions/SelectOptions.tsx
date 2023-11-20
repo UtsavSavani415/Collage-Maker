@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
-import {Image, Modal, Text, TouchableOpacity, View} from 'react-native';
+import {Modal, Text, TouchableOpacity, View} from 'react-native';
 import {styles} from './style';
 import {useNavigation} from '@react-navigation/native';
-import {BlurView} from '@react-native-community/blur';
 import SelectImage from '../../utils/selectImage/SelectImage';
 
 function SelectOptions() {
@@ -10,9 +9,9 @@ function SelectOptions() {
 
   const navigation = useNavigation();
 
-  //   const toPhotoEditing = () => {
-  //     navigation.navigate('photo');
-  //   };
+  // const toPhotoEditing = () => {
+  //   navigation.navigate('photo');
+  // };
 
   const toCollageEditing = () => {
     navigation.navigate('collage');
@@ -28,7 +27,7 @@ function SelectOptions() {
               setModalvisible(true);
             }}>
             <View style={styles.optionIcon} />
-            <Text style={styles.text}>Photo</Text>
+            <Text style={styles.text}>Photos</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionBox} onPress={toCollageEditing}>
             <View style={styles.optionIcon} />
@@ -39,7 +38,11 @@ function SelectOptions() {
           <View style={styles.modal}>
             <View style={styles.modalContainer}>
               <Text style={styles.text}>modal</Text>
-              <SelectImage />
+              <SelectImage
+                setVisibility={modalVisibility =>
+                  setModalvisible(modalVisibility)
+                }
+              />
               <TouchableOpacity
                 style={styles.btnBox}
                 onPress={() => {

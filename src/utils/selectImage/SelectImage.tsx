@@ -1,18 +1,17 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import ImagePicker, {
-  launchCamera,
-  launchImageLibrary,
-} from 'react-native-image-picker';
-import Permissions from 'react-native-permissions';
+import {launchImageLibrary} from 'react-native-image-picker';
 import {styles} from './style';
 import {useNavigation} from '@react-navigation/native';
 
-function SelectImage() {
-  const [selectedImage, setSelectedImage] = useState(
-    'https://d23qowwaqkh3fj.cloudfront.net/wp-content/uploads/2022/03/placeholder.png',
-  );
+function SelectImage({setVisibility}) {
+  const [selectedImage, setSelectedImage] = useState('');
 
+  let placeHolderImage =
+    'https://d23qowwaqkh3fj.cloudfront.net/wp-content/uploads/2022/03/placeholder.png';
+  // useEffect(() => {
+  //   setModalvisible(false);
+  // }, []);
   const navigation = useNavigation();
   let options = {
     storageOptions: {
@@ -21,13 +20,15 @@ function SelectImage() {
   };
   const chooseImage = () => {
     launchImageLibrary(options, response => {
+      let imgURI = response.assets[0].uri;
       if (response) {
-        setSelectedImage(response.assets[0].uri);
+        setSelectedImage(imgURI);
         navigation.navigate('photo', {
-          uri: selectedImage,
+          uri: imgURI,
         });
+        setVisibility(false);
       }
-      console.log(selectImage);
+      console.log('in library', response.assets[0]);
     });
   };
   return (
